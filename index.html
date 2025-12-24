@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎅🏼 Feliz Navidad 🎄</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<!-- PANTALLA 1 -->
+<div id="cover">
+    <div class="cover-card">
+        <img src="images/pantalla1.png" alt="">
+    </div>
+    <div class="hint">HAZ CLICK PARA CONTINUAR</div>
+</div>
+
+<!-- PANTALLA 2 -->
+<div id="content">
+    <div class="card">
+        <div class="title">TARJETA REGALO</div>
+        <div class="subtitle">¡Felices fiestas!</div>
+        <div class="text">
+            Este vale es para que disfruten juntos un momento especial<br>
+            donde más les guste.<br><br>
+            Con mucho cariño.
+        </div>
+        <div class="scratch-container" id="game-area">
+            <div id="prize-text"></div>
+            <canvas id="scratchCanvas" width="280" height="90"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- PANTALLA 3 -->
+<div id="winner-screen">
+    <div class="winner-card">
+        <img src="images/vale.png" alt="Celebración">
+    </div>
+</div>
+
+<!-- JS -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
