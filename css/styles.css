@@ -1,0 +1,321 @@
+:root {
+    --gold: #d4af37;
+    --gold-soft: #f3d58a;
+    --shadow: 0 2px 6px rgba(0,0,0,.6);
+}
+
+/* BASE */
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+/* PANTALLA 1 */
+/*#cover {
+    position: fixed;
+    inset: 0;
+    background: url("../images/pantalla1.png") center/cover no-repeat;
+    cursor: pointer;
+}*/
+
+#cover {
+    position: fixed;
+    inset: 0;
+    background-color: #8b0604;       /* ROJO NAVIDEÑO */
+    cursor: pointer;
+   
+    /*display: none;*/
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--gold-soft);
+    text-shadow: var(--shadow);
+    z-index: 20;
+}
+
+#cover .hint {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    color: var(--gold-soft);
+    text-shadow: var(--shadow);
+    opacity: 0.85;
+}
+
+.cover-card img {
+    width: 100%;
+    max-width: 1190px;   /* punto dulce para 1748px */
+    height: auto;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* PANTALLA 2 */
+#content {
+    display: none;
+    height: 100vh;
+    background: url("../images/pantalla2.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 420px;
+    padding: 40px;
+    text-align: center;
+    color: var(--gold-soft);
+    text-shadow: var(--shadow);
+}
+
+/* TEXTOS */
+.title {
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+.subtitle {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* INPUT */
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--gold);
+    padding: 10px;
+    color: var(--gold-soft);
+    width: 80%;
+    text-align: center;
+    outline: none;
+    font-size: 1rem;
+}
+
+button {
+    margin-top: 15px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+/* RASPA */
+.scratch-container {
+    position: relative;
+    width: 280px;
+    height: 90px;
+    margin: 40px auto;
+    display: block;
+}
+
+#prize-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+canvas {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+}
+
+.amount {
+    margin-top: 25px;
+    font-size: 2.3rem;
+    color: var(--gold);
+}
+
+/* CELEBRACIÓN */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #d4af37; }
+    50% { text-shadow: 0 0 25px #ffd700; }
+    100% { text-shadow: 0 0 5px #d4af37; }
+}
+
+.winner {
+    animation: glow 1.5s infinite;
+}
+
+/* CONFETTI */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: gold;
+    top: -10px;
+    animation: fall 3s linear forwards;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+/* Evita zoom raro en móviles */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Ajuste general */
+.card {
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+/* Tablets y móviles grandes */
+@media (max-width: 768px) {
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.9rem;
+    }
+
+    .text {
+        font-size: 0.9rem;
+    }
+
+    .amount {
+        font-size: 2rem;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+
+    #cover .hint {
+        font-size: 0.85rem;
+        bottom: 25px;
+    }
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    .title {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 1.6rem;
+    }
+
+    .text {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    input {
+        width: 90%;
+        font-size: 0.95rem;
+    }
+
+    button {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+
+    .scratch-container {
+        width: 240px;
+        height: 80px;
+    }
+
+    canvas {
+        width: 240px;
+        height: 80px;
+    }
+
+    .amount {
+        font-size: 1.8rem;
+        margin-top: 20px;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+
+    .title {
+        font-size: 1.4rem;
+    }
+
+    .subtitle {
+        font-size: 1.4rem;
+    }
+
+    .amount {
+        font-size: 1.6rem;
+    }
+}
+
+/* =========================
+   PANTALLA 3 - GANADOR
+   ========================= */
+#winner-screen {
+    display: none;                  /* Oculta al inicio */
+    position: fixed;
+    inset: 0;
+    background-color: #8b0604;       /* ROJO NAVIDEÑO */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--gold-soft);
+    text-shadow: var(--shadow);
+    z-index: 20;
+}
+
+.winner-card {
+    padding: 30px 25px;
+    max-width: 90%;
+}
+
+.winner-card img {
+    width: 100%;
+    max-width: 1100px;   /* punto dulce para 1748px */
+    height: auto;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .winner-card img {
+        max-width: 100%;
+    }
+}
